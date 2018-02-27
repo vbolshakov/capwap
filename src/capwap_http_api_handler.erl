@@ -341,4 +341,4 @@ bin_fmt(FmtStr, Args) ->
     erlang:list_to_binary(io_lib:format(FmtStr, Args)).
 
 fmt_station_mac(Station) ->
-    bin_fmt("~s", [ieee80211_station:format_eui(Station)]).
+    bin_fmt("~s", [capwap_tools:format_eui(Station)]).

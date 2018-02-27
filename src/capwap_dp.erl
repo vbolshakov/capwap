@@ -321,7 +321,7 @@ run_loop(WTP) ->
 	{packet_in, tap, Packet} ->
 	    io:format("Packet-In: ~p~n", [Packet]),
 	    <<MAC:6/bytes, _/binary>> = Packet,
-	    case {flower_mac_learning:eth_addr_is_reserved(MAC), flower_mac_learning:may_learn(MAC)} of
+        case {capwap_tools:eth_addr_is_reserved(MAC), capwap_tools:may_learn(MAC)} of
 		{false, true} ->
 		    io:format("install STA: ~p~n", [MAC]),
 		    RadioId = 1,
